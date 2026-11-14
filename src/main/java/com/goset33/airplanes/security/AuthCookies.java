@@ -28,8 +28,8 @@ public class AuthCookies {
     public ResponseCookie refresh(String refreshToken) {
         return ResponseCookie.from(REFRESH_COOKIE, refreshToken)
                 .httpOnly(true)
-                .secure(auth.cookieSecure() || "None".equalsIgnoreCase(auth.cookieSameSite()))
-                .sameSite(auth.cookieSameSite())
+                .secure(auth.cookieSecure())
+                .sameSite("Strict")
                 .path(REFRESH_PATH)
                 .maxAge(refreshTtl)
                 .build();
@@ -38,8 +38,8 @@ public class AuthCookies {
     public ResponseCookie clearRefresh() {
         return ResponseCookie.from(REFRESH_COOKIE, "")
                 .httpOnly(true)
-                .secure(auth.cookieSecure() || "None".equalsIgnoreCase(auth.cookieSameSite()))
-                .sameSite(auth.cookieSameSite())
+                .secure(auth.cookieSecure())
+                .sameSite("Strict")
                 .path(REFRESH_PATH)
                 .maxAge(Duration.ZERO)
                 .build();

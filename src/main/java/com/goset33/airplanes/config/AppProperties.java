@@ -45,7 +45,6 @@ public record AppProperties(
             @DefaultValue("http://localhost:8080/") String frontendSuccessUrl,
             @DefaultValue("http://localhost:8080/") String frontendFailureUrl,
             @DefaultValue("true") boolean cookieSecure,
-            @DefaultValue("Strict") String cookieSameSite,
             @DefaultValue("http://localhost:8080") List<String> allowedOrigins
     ) {
     }
